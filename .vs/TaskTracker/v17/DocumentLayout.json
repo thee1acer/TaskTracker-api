@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\MphoNkala\\OneDrive - SYNTHESIS SOFTWARE TECHNOLOGIES (PTY) LTD\\Projects\\TaskTracker\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\MphoNkala\\OneDrive - SYNTHESIS SOFTWARE TECHNOLOGIES (PTY) LTD\\Projects\\TaskTracker\\.vs\\TaskTracker\\config\\applicationhost.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:.vs\\TaskTracker\\config\\applicationhost.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E02AF008-E355-4AA7-8B77-13A45B543269}|docker-compose.dcproj|c:\\users\\mphonkala\\onedrive - synthesis software technologies (pty) ltd\\projects\\tasktracker\\docker-compose.override.yml||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{E02AF008-E355-4AA7-8B77-13A45B543269}|docker-compose.dcproj|solutionrelative:docker-compose.override.yml||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E02AF008-E355-4AA7-8B77-13A45B543269}|docker-compose.dcproj|c:\\users\\mphonkala\\onedrive - synthesis software technologies (pty) ltd\\projects\\tasktracker\\docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{E02AF008-E355-4AA7-8B77-13A45B543269}|docker-compose.dcproj|solutionrelative:docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{97C8E628-5382-406F-B4D1-1BF25A0958CA}|TaskTracker.Database\\TaskTracker.Database.csproj|c:\\users\\mphonkala\\onedrive - synthesis software technologies (pty) ltd\\projects\\tasktracker\\tasktracker.database\\tasktracker.database.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{97C8E628-5382-406F-B4D1-1BF25A0958CA}|TaskTracker.Database\\TaskTracker.Database.csproj|solutionrelative:tasktracker.database\\tasktracker.database.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AEA08F1C-7F10-4A03-85A5-996BFDBE2198}|TaskTracker\\TaskTracker.csproj|c:\\users\\mphonkala\\onedrive - synthesis software technologies (pty) ltd\\projects\\tasktracker\\tasktracker\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -29,7 +29,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 562,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -61,34 +61,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "TaskTracker.Database",
-              "DocumentMoniker": "C:\\Users\\MphoNkala\\OneDrive - SYNTHESIS SOFTWARE TECHNOLOGIES (PTY) LTD\\Projects\\TaskTracker\\TaskTracker.Database\\TaskTracker.Database.csproj",
-              "RelativeDocumentMoniker": "TaskTracker.Database\\TaskTracker.Database.csproj",
-              "ToolTip": "C:\\Users\\MphoNkala\\OneDrive - SYNTHESIS SOFTWARE TECHNOLOGIES (PTY) LTD\\Projects\\TaskTracker\\TaskTracker.Database\\TaskTracker.Database.csproj",
-              "RelativeToolTip": "TaskTracker.Database\\TaskTracker.Database.csproj",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-06-05T19:25:04.929Z",
-              "IsPinned": true,
+              "DocumentIndex": 0,
+              "Title": "applicationhost.config",
+              "DocumentMoniker": "C:\\Users\\MphoNkala\\OneDrive - SYNTHESIS SOFTWARE TECHNOLOGIES (PTY) LTD\\Projects\\TaskTracker\\.vs\\TaskTracker\\config\\applicationhost.config",
+              "RelativeDocumentMoniker": ".vs\\TaskTracker\\config\\applicationhost.config",
+              "ToolTip": "C:\\Users\\MphoNkala\\OneDrive - SYNTHESIS SOFTWARE TECHNOLOGIES (PTY) LTD\\Projects\\TaskTracker\\.vs\\TaskTracker\\config\\applicationhost.config",
+              "RelativeToolTip": ".vs\\TaskTracker\\config\\applicationhost.config",
+              "ViewState": "AQIAADwAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-06-05T19:57:37.543Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "docker-compose.override.yml",
               "DocumentMoniker": "C:\\Users\\MphoNkala\\OneDrive - SYNTHESIS SOFTWARE TECHNOLOGIES (PTY) LTD\\Projects\\TaskTracker\\docker-compose.override.yml",
               "RelativeDocumentMoniker": "docker-compose.override.yml",
               "ToolTip": "C:\\Users\\MphoNkala\\OneDrive - SYNTHESIS SOFTWARE TECHNOLOGIES (PTY) LTD\\Projects\\TaskTracker\\docker-compose.override.yml",
               "RelativeToolTip": "docker-compose.override.yml",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAABYAAAACAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAACAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003775|",
               "WhenOpened": "2024-06-05T19:09:06.272Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "docker-compose.yml",
               "DocumentMoniker": "C:\\Users\\MphoNkala\\OneDrive - SYNTHESIS SOFTWARE TECHNOLOGIES (PTY) LTD\\Projects\\TaskTracker\\docker-compose.yml",
               "RelativeDocumentMoniker": "docker-compose.yml",
