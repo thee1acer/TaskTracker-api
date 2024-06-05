@@ -1,4 +1,4 @@
-namespace TaskTracker
+namespace TaskTracker.Models
 {
     public class WeatherForecast
     {

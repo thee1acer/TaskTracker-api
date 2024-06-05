@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using TaskTracker.Models;
 
 namespace TaskTracker.Controllers
 {

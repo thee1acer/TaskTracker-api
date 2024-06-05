@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "4v+rT2TjeuL9zfSAa2GpqR/UrL3TYm0KGJRzBiByEJmE3ZQoOkcJ3IO2Fc0K56K9MuGxHK5oodm538KDMEV10Q==",
+  "dgSpecHash": "o+thBjRiFsaoCNLxsab2rYedRLma1GiXMPtb9m1VbeEV9Ob6FBGh3L0RwBlPpoTMa+y9hnTZIeK+cP5/yWQ/0w==",
   "success": true,
   "projectFilePath": "C:\\Users\\MphoNkala\\OneDrive - SYNTHESIS SOFTWARE TECHNOLOGIES (PTY) LTD\\Projects\\TaskTracker\\TaskTracker\\TaskTracker.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\MphoNkala\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\MphoNkala\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\MphoNkala\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.19.6\\microsoft.visualstudio.azure.containers.tools.targets.1.19.6.nupkg.sha512",
     "C:\\Users\\MphoNkala\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
     "C:\\Users\\MphoNkala\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.4.0\\swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
     "C:\\Users\\MphoNkala\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.4.0\\swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",
