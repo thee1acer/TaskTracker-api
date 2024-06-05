@@ -1,0 +1,11 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/TaskTracker/config/applicationhost.config
+/.vs/TaskTracker/FileContentIndex/07c2ed7d-1065-41bc-b41e-812f1d01af33.vsidx
+/.vs/TaskTracker/FileContentIndex/722b5f9a-80e1-44c5-9f03-ae21a43f6cb9.vsidx
+/.vs/TaskTracker/FileContentIndex/f3631c96-7c68-4b60-9e3c-237be4207b6a.vsidx
+/.vs/TaskTracker/FileContentIndex/5151cde1-01f0-4e43-995d-29bcfae7e1ac.vsidx
+/.vs/TaskTracker/FileContentIndex/f5613315-31db-4910-85e6-38e384e7200b.vsidx
+/.vs/TaskTracker/v17/DocumentLayout.json
