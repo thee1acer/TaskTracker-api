@@ -1,0 +1,23 @@
+version: '3.4'
+services:
+    tasktracker:
+        environment:
+            - ASPNETCORE_ENVIRONMENT=Development
+            - ASPNETCORE_URLS=https://+:443;http://+:80
+
+            ##############
+            # DB Options #
+            ##############
+
+            - REFERENCE_DB__SERVER=mssql
+            - REFERENCE_DB__DATABASE_NAME=TaskTracker
+            - REFERENCE_DB__USER=sa
+            - REFERENCE_DB__PASSWORD=dock3rP@ssword
+        ports:
+            - "80"
+            - "443"
+        volumes:
+            - ~/.aspnet/https:/root/.aspnet/https:ro
+            - ~/.microsoft/usersecrets:/root/.microsoft/usersecrets:ro
+ 
+  
