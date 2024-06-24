@@ -1,7 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System.Security.AccessControl;
-
-namespace TaskTracker.Database.Models
+﻿namespace TaskTracker.Database.Models
 {
     public class ApplicationUser : Audit
     {

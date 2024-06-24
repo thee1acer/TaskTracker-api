@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-
-namespace TaskTracker.Database.Models
+﻿namespace TaskTracker.Database.Models
 {
     public partial class Audit
     {
