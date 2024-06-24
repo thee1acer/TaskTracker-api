@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = TaskTracker.Database
-build_property.ProjectDir = C:\Users\MphoNkala\OneDrive - SYNTHESIS SOFTWARE TECHNOLOGIES (PTY) LTD\Projects\TaskTracker\TaskTracker.Database\
+build_property.ProjectDir = C:\Users\MphoNkala\OneDrive - SYNTHESIS SOFTWARE TECHNOLOGIES (PTY) LTD\Projects\Task Tracker\TaskTracker\TaskTracker.Database\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
