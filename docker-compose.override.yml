@@ -9,7 +9,7 @@ services:
             # DB Options #
             ##############
 
-            - REFERENCE_DB__SERVER=mssql
+            - REFERENCE_DB__SERVER=sql_db
             - REFERENCE_DB__DATABASE_NAME=TaskTracker
             - REFERENCE_DB__USER=sa
             - REFERENCE_DB__PASSWORD=dock3rP@ssword
@@ -17,7 +17,7 @@ services:
             - "80"
             - "443"
         volumes:
-            - ~/.aspnet/https:/root/.aspnet/https:ro
-            - ~/.microsoft/usersecrets:/root/.microsoft/usersecrets:ro
+          - ~/.microsoft/usersecrets:/root/.microsoft/usersecrets:ro
+          - ~/.aspnet/https:/root/.aspnet/https:ro
  
   

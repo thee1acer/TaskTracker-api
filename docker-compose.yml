@@ -8,12 +8,13 @@ services:
             context: .
             dockerfile: TaskTracker/Dockerfile
         depends_on: 
-            - mssql
+            - sql_db
         ports:
             - "8443:443"
-
-    mssql:
-        image: mcr.microsoft.com/mssql/server:2019-latest
+        networks:
+            - shared
+    sql_db:
+        image: mcr.microsoft.com/mssql/server
         user: root
         container_name: TaskTracker_SQL
         ports:
@@ -21,7 +22,6 @@ services:
         environment:
             - ACCEPT_EULA=Y
             - SA_PASSWORD=dock3rP@ssword
-            - MSSQL_AGENT_ENABLED=True
         volumes:
             - TaskTracker_SQL_Volume:/var/opt/mssql/data
         networks:

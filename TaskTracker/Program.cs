@@ -1,9 +1,24 @@
+using TaskTracker.Database;
+using TaskTracker.Database.Helpers;
+using Microsoft.Extensions.Options;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// database configuration 
+builder.Services.AddOptions<ConnectionDetails>().BindConfiguration("REFERENCE_DB");
+
+builder.Services.AddDbContext<TaskTrackerContext>(
+    (provider, options) =>
+        {
+            var connectionDetails = provider.GetRequiredService<IOptions<ConnectionDetails>>();
+            var connectionString = ConnectionStringHelper.BuildConnectionString(connectionDetails.Value);
+
+            options.UseSqlServer(connectionString, ops => ops.EnableRetryOnFailure());
+        }
+);
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -16,6 +31,14 @@ builder.Services.AddCors(options =>
 });
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var context = services.GetRequiredService<TaskTrackerContext>();
+
+    context.EnsureMigrationIsApplied(app.Environment.IsDevelopment());
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
