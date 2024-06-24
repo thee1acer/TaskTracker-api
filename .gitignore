@@ -448,3 +448,9 @@ Thumbs.db
 *.mov
 *.wmv
 
+*.obj/
+*.bin/
+
+TaskProject.Database/bin/
+TaskProject.Database/obj/
+
