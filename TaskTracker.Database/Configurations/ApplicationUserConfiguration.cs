@@ -11,6 +11,8 @@ namespace TaskTracker.Database.Configurations
             builder.ToTable("ApplicationUser");
 
             builder.HasKey(x => x.Id);
+
+            builder.HasOne(x => x.UserRole);                
         }
     }
 }

@@ -17,16 +17,16 @@ namespace TaskTracker.Database
         public void EnsureMigrationIsApplied(bool isDevelopmentEnvironment)
         {
             #if DEBUG
-                var data = Database.GetDbConnection();
                 Database.EnsureDeleted();
                 Database.Migrate();
                 //AddMockData();
             #else
-                    Database.Migrate();
+                Database.Migrate();
             #endif
         }
 
         public virtual DbSet<ApplicationUser> ApplicationUsers => Set<ApplicationUser>();
+        public virtual DbSet<ApplicationUserRole> ApplicationUserRoles => Set<ApplicationUserRole>();
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -39,9 +39,7 @@ namespace TaskTracker.Database
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-            //OnModelCreatingPartial(modelBuilder);
+            
         }
-
-        //partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }
 }
