@@ -451,6 +451,5 @@ Thumbs.db
 *.obj/
 *.bin/
 
-TaskProject.Database/bin/
-TaskProject.Database/obj/
-
+/TaskTracker.Database/obj/Debug/net8.0/TaskTracker.Database.AssemblyInfoInputs.cache
+/TaskTracker.Database/obj/Debug/net8.0/TaskTracker.Database.AssemblyInfo.cs
