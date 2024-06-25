@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace TaskTracker.Database.Enums
+namespace TaskTracker.Enums
 {
     public enum TaskTypeEnum
     {

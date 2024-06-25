@@ -2,10 +2,10 @@ using TaskTracker.Database;
 using TaskTracker.Database.Helpers;
 using Microsoft.Extensions.Options;
 using Microsoft.EntityFrameworkCore;
+using TaskTracker.Controllers.Task;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// database configuration 
 builder.Services.AddOptions<ConnectionDetails>().BindConfiguration("REFERENCE_DB");
 
 builder.Services.AddDbContext<TaskTrackerContext>(
@@ -17,6 +17,8 @@ builder.Services.AddDbContext<TaskTrackerContext>(
             options.UseSqlServer(connectionString, ops => ops.EnableRetryOnFailure());
         }
 );
+
+builder.Services.IntegrateMainServices(builder.Configuration);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

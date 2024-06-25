@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 using TaskTracker.Database.Models;
+using TaskTracker.Database.Models.Task;
 
 namespace TaskTracker.Database
 {
@@ -27,6 +28,8 @@ namespace TaskTracker.Database
 
         public virtual DbSet<ApplicationUser> ApplicationUsers => Set<ApplicationUser>();
         public virtual DbSet<ApplicationUserRole> ApplicationUserRoles => Set<ApplicationUserRole>();
+        public virtual DbSet<TaskEntity> Tasks => Set<TaskEntity>();
+        public virtual DbSet<TaskBlockerEntity> TaskBlockers => Set<TaskBlockerEntity>();
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
