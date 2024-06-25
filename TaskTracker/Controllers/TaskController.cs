@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
-using TaskTracker.Controllers.Task;
+using TaskTracker.Configurations;
 using TaskTracker.Database.Models.Task;
 using TaskTracker.Database.Services.Task;
 

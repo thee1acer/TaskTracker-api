@@ -1,4 +1,4 @@
-﻿namespace TaskTracker.Controllers.Task
+﻿namespace TaskTracker.Configurations
 {
     public static class RoutePaths
     {
