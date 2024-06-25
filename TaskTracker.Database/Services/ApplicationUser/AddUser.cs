@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Mapster;
+using Microsoft.Extensions.Logging;
+using TaskTracker.Common.Models;
 using TaskTracker.Database.Models;
 
 namespace TaskTracker.Database.Services.AppplicationUser
@@ -14,11 +16,13 @@ namespace TaskTracker.Database.Services.AppplicationUser
             _logger = logger;
         }
 
-        public async Task<bool> ExecuteAsync(ApplicationUser applicationUser, CancellationToken cancellationToken = default)
+        public async Task<bool> ExecuteAsync(ApplicationUserDTO applicationUser, CancellationToken cancellationToken = default)
         {
             try
             {
-                await _taskTrackerContext.AddAsync(applicationUser, cancellationToken);
+                var applicationUserDbRecord = applicationUser.Adapt<ApplicationUser>();
+
+                await _taskTrackerContext.AddAsync(applicationUser, cancellationToken); 
 
                 return true;
             }

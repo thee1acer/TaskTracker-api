@@ -2,7 +2,7 @@ using TaskTracker.Database;
 using TaskTracker.Database.Helpers;
 using Microsoft.Extensions.Options;
 using Microsoft.EntityFrameworkCore;
-using TaskTracker.Controllers.Task;
+using TaskTracker.Database.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 

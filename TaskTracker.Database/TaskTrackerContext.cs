@@ -18,7 +18,7 @@ namespace TaskTracker.Database
         public void EnsureMigrationIsApplied(bool isDevelopmentEnvironment)
         {
             #if DEBUG
-                Database.EnsureDeleted();
+                //Database.EnsureDeleted();
                 Database.Migrate();
                 //AddMockData();
             #else
@@ -30,6 +30,7 @@ namespace TaskTracker.Database
         public virtual DbSet<ApplicationUserRole> ApplicationUserRoles => Set<ApplicationUserRole>();
         public virtual DbSet<TaskEntity> Tasks => Set<TaskEntity>();
         public virtual DbSet<TaskBlockerEntity> TaskBlockers => Set<TaskBlockerEntity>();
+        public virtual DbSet<ApplicationUserPassword> ApplicationUserPasswords => Set<ApplicationUserPassword>();
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

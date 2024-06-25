@@ -1,5 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Mapster;
 using Microsoft.Extensions.Logging;
+using TaskTracker.Common.Models;
 using TaskTracker.Database.Models;
 
 namespace TaskTracker.Database.Services.AppplicationUser
@@ -15,29 +16,15 @@ namespace TaskTracker.Database.Services.AppplicationUser
             _logger = logger;
         }
 
-        public async Task<bool> ExecuteAsync(ApplicationUser applicationUser, CancellationToken cancellationToken = default)
-        {
-            if (applicationUser == default) return false;
-
-            var userRecord = await _taskTrackerContext.ApplicationUsers.FirstOrDefaultAsync(v => v.Id == applicationUser.Id , cancellationToken).ConfigureAwait(false);
-
-            if(userRecord == default) return false;
-
-            return await UpdateUserAsync(userRecord, applicationUser);
-        }
-
-        private async Task<bool> UpdateUserAsync(ApplicationUser userRecord, ApplicationUser applicationUser)
+        public async Task<bool> ExecuteAsync(ApplicationUserDTO applicationUser, CancellationToken cancellationToken = default)
         {
             try
             {
-                userRecord.FirstName = applicationUser.FirstName;
-                userRecord.LastName = applicationUser.LastName;
-                userRecord.Email = applicationUser.Email;
-                
-                userRecord.Inactive = false;
+                if (applicationUser == default) return false;
 
-                userRecord.ModifiedBy = 1;
-                userRecord.ModifiedOn = DateTime.UtcNow;
+                var applicationUserRecord = applicationUser.Adapt<ApplicationUser>();
+
+                _taskTrackerContext.ApplicationUsers.Update(applicationUserRecord);
 
                 await _taskTrackerContext.SaveChangesAsync();
 

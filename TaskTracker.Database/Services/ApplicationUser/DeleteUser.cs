@@ -18,19 +18,16 @@ namespace TaskTracker.Database.Services.AppplicationUser
         {
             try
             {
-                var user = await _taskTrackerContext.ApplicationUsers.FirstOrDefaultAsync(v => v.Id == userId, cancellationToken).ConfigureAwait(false);
+                var user = await _taskTrackerContext.ApplicationUsers.FirstOrDefaultAsync(v => v.Id == userId, cancellationToken)
+                        .ConfigureAwait(false);
 
                 if (user == default) return false;
                 
                 user.Inactive = true;
 
-                user.ModifiedBy = 1;
-                user.ModifiedOn = DateTime.UtcNow;
-
                 await _taskTrackerContext.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
 
                 return true;
-                
             }
             catch(Exception ex) 
             {

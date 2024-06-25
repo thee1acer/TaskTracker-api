@@ -1,5 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Mapster;
 using Microsoft.Extensions.Logging;
+using TaskTracker.Common.Models.Task;
 using TaskTracker.Database.Models.Task;
 
 namespace TaskTracker.Database.Services.Task
@@ -15,13 +16,21 @@ namespace TaskTracker.Database.Services.Task
             _logger = logger;
         }
 
-        public async Task<bool> ExecuteAsync(TaskEntity taskEntity, CancellationToken cancellationToken = default)
+        public async Task<bool> ExecuteAsync(TaskEntityDTO taskEntity, CancellationToken cancellationToken = default)
         {
             try
             {
-                await _taskTrackerContext.AddAsync(taskEntity, cancellationToken);
+                var taskDbRecord = taskEntity.Adapt<TaskEntity>();
 
-                return true;
+                if (taskDbRecord == null)
+                {
+                    await _taskTrackerContext.AddAsync(taskEntity, cancellationToken);
+
+                    await _taskTrackerContext.SaveChangesAsync(cancellationToken);
+                    return true;
+                }
+
+                return false;
             }
             catch(Exception ex) 
             {

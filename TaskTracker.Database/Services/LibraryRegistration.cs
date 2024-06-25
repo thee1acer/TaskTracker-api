@@ -3,8 +3,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using TaskTracker.Database.Services.AppplicationUser;
 using TaskTracker.Database.Services.Task;
+using TaskTracker.Database.Services.UserAuthentication;
 
-namespace TaskTracker.Controllers.Task
+namespace TaskTracker.Database.Services
 {
     public static class LibraryRegistration
     {
@@ -19,6 +20,9 @@ namespace TaskTracker.Controllers.Task
             service.AddTransient<UpdateUser>();
             service.AddTransient<DeleteUser>();
             service.AddTransient<AddUser>();
+
+            service.AddTransient<LoginUser>();
+            service.AddTransient<RegisterUser>();
         }
     }
 }

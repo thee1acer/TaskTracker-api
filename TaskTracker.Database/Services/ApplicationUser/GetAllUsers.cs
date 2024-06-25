@@ -1,6 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Mapster;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using TaskTracker.Database.Models;
+using TaskTracker.Common.Models;
 
 namespace TaskTracker.Database.Services.AppplicationUser
 {
@@ -15,9 +16,12 @@ namespace TaskTracker.Database.Services.AppplicationUser
             _logger = logger;
         }
 
-        public async Task<List<ApplicationUser>> ExecuteAsync(CancellationToken cancellationToken)
+        public async Task<List<ApplicationUserDTO>> ExecuteAsync(CancellationToken cancellationToken)
         {
-            return await _taskTrackerContext.ApplicationUsers.ToListAsync(cancellationToken).ConfigureAwait(false);
+            var applicationUsers =  await _taskTrackerContext.ApplicationUsers.ToListAsync(cancellationToken)
+                    .ConfigureAwait(false);
+
+            return applicationUsers.Adapt<List<ApplicationUserDTO>>();
         }
     }
 }

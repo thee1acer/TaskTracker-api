@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using TaskTracker.Common.Enums;
 namespace TaskTracker.Database.Services.Task
 {
     public class DeleteTask
@@ -17,11 +18,12 @@ namespace TaskTracker.Database.Services.Task
         {
             try
             {
-                var task = await _taskTrackerContext.Tasks.FirstOrDefaultAsync(v => v.Id == taskId, cancellationToken).ConfigureAwait(false);
+                var task = await _taskTrackerContext.Tasks.FirstOrDefaultAsync(v => v.Id == taskId, cancellationToken)
+                        .ConfigureAwait(false);
 
                 if (task == default) return false;
-                
-                task.State = "Deffered";
+
+                task.State = TaskStatusEnum.Deffered.Description();
                 task.ModifiedBy = 1;
                 task.ModifiedOn = DateTime.UtcNow;
 

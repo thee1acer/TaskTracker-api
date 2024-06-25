@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using TaskTracker.Common.Models;
 using TaskTracker.Configurations;
 using TaskTracker.Database.Models;
 using TaskTracker.Database.Services.AppplicationUser;
@@ -33,7 +34,7 @@ namespace UserTracker.Controllers
 
         [HttpGet]
         [Route("get-all-users")]
-        [ProducesResponseType(typeof(List<ApplicationUser>), 200)]
+        [ProducesResponseType(typeof(List<ApplicationUserDTO>), 200)]
         public async Task<IActionResult> GetAllUsersAsync(CancellationToken cancellationToken)
         {
             try
@@ -50,7 +51,7 @@ namespace UserTracker.Controllers
         [HttpPost]
         [Route("update-User")]
         [ProducesResponseType(typeof(bool), 200)]
-        public async Task<IActionResult> UpdateUserAsync([FromBody] ApplicationUser ApplicationUser)
+        public async Task<IActionResult> UpdateUserAsync([FromBody] ApplicationUserDTO ApplicationUser)
         {
             try
             {
@@ -64,13 +65,13 @@ namespace UserTracker.Controllers
         }
 
         [HttpDelete]
-        [Route("delete-User/{UserId:int}")]
-        [ProducesResponseType(typeof(List<ApplicationUser>), 200)]
-        public async Task<IActionResult> DeleteUserAsync(int UserId)
+        [Route("delete-User/{userId:int}")]
+        [ProducesResponseType(typeof(List<ApplicationUserDTO>), 200)]
+        public async Task<IActionResult> DeleteUserAsync(int userId)
         {
             try
             {
-                return Ok(await _deleteUserService.ExecuteAsync(UserId));
+                return Ok(await _deleteUserService.ExecuteAsync(userId));
             }
             catch (Exception ex)
             {
@@ -83,7 +84,7 @@ namespace UserTracker.Controllers
         [HttpPost]
         [Route("add-User")]
         [ProducesResponseType(typeof(bool), 200)]
-        public async Task<IActionResult> AddUserAsync([FromBody] ApplicationUser ApplicationUser)
+        public async Task<IActionResult> AddUserAsync([FromBody] ApplicationUserDTO ApplicationUser)
         {
             try
             {

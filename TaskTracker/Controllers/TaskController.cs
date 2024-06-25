@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TaskTracker.Configurations;
-using TaskTracker.Database.Models.Task;
 using TaskTracker.Database.Services.Task;
+using TaskTracker.Common.Models.Task;
 
 namespace TaskTracker.Controllers
 {
@@ -34,7 +34,7 @@ namespace TaskTracker.Controllers
 
         [HttpGet]
         [Route("get-all-tasks")]
-        [ProducesResponseType(typeof(List<TaskEntity>), 200)]
+        [ProducesResponseType(typeof(List<TaskEntityDTO>), 200)]
         public async Task<IActionResult> GetAllTasksAsync(CancellationToken cancellationToken)
         {
             try
@@ -51,7 +51,7 @@ namespace TaskTracker.Controllers
         [HttpPost]
         [Route("update-task")]
         [ProducesResponseType(typeof(bool), 200)]
-        public async Task<IActionResult> UpdateTaskAsync([FromBody] TaskEntity taskEntity)
+        public async Task<IActionResult> UpdateTaskAsync([FromBody] TaskEntityDTO taskEntity)
         {
             try
             {
@@ -66,7 +66,7 @@ namespace TaskTracker.Controllers
 
         [HttpDelete]
         [Route("delete-task/{taskId:int}")]
-        [ProducesResponseType(typeof(List<TaskEntity>), 200)]
+        [ProducesResponseType(typeof(List<TaskEntityDTO>), 200)]
         public async Task<IActionResult> DeleteTaskAsync(int taskId)
         {
             try
@@ -84,7 +84,7 @@ namespace TaskTracker.Controllers
         [HttpPost]
         [Route("add-task")]
         [ProducesResponseType(typeof(bool), 200)]
-        public async Task<IActionResult> AddTaskAsync([FromBody] TaskEntity taskEntity)
+        public async Task<IActionResult> AddTaskAsync([FromBody] TaskEntityDTO taskEntity)
         {
             try
             {
