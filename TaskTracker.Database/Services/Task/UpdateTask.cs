@@ -55,10 +55,8 @@ namespace TaskTracker.Database.Services.Task
                         dbRecordTaskBlocker.BlockerReason = updatedTaskBlocker.BlockerReason;
                         dbRecordTaskBlocker.InActive = updatedTaskBlocker.InActive;
 
-                        dbRecordTaskBlocker.ModifiedBy = updatedTaskBlocker.ModifiedBy;
-                        dbRecordTaskBlocker.ModifiedOn = updatedTaskBlocker.ModifiedOn;
-
-                        dbRecordTaskBlocker.OriginalTask = updatedTaskBlocker.OriginalTask;
+                        dbRecordTaskBlocker.ModifiedBy = 1;
+                        dbRecordTaskBlocker.ModifiedOn = DateTime.UtcNow;
                     }
                 }
 

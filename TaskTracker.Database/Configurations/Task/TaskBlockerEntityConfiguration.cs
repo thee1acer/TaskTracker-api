@@ -10,8 +10,6 @@ namespace TaskTracker.Database.Models.Task
             builder.ToTable(nameof(TaskBlockerEntity));
             
             builder.HasKey(t => t.Id);
-
-            builder.HasOne(t => t.OriginalTask);
         }
     }
 }

@@ -20,10 +20,9 @@ namespace TaskTracker.Database.Services.Task
                 var task = await _taskTrackerContext.Tasks.FirstOrDefaultAsync(v => v.Id == taskId, cancellationToken).ConfigureAwait(false);
 
                 if (task == default) return false;
-
                 
                 task.State = "Deffered";
-                //task.ModifiedBy = 1; - to be modified
+                task.ModifiedBy = 1;
                 task.ModifiedOn = DateTime.UtcNow;
 
                 await _taskTrackerContext.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
