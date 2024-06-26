@@ -21,7 +21,7 @@ namespace TaskTracker.Database.Services.UserAuthentication
             if (applicationUserLoginDto.Email == default || applicationUserLoginDto.UnhashedPassword == default) return default;
 
             var applicationUser = await _taskTrackerContext.ApplicationUsers
-                .Include(v => v.UserPassword)
+                .Include(x => x.UserPassword)
                 .FirstOrDefaultAsync(v => v.Email == applicationUserLoginDto.Email, cancellationToken)
                     .ConfigureAwait(false);
 
@@ -41,9 +41,8 @@ namespace TaskTracker.Database.Services.UserAuthentication
 
         private static ApplicationUserDTO SetLoginToken(ApplicationUserDTO responseData)
         {
-            var token = new Random().Next(10000, 300000).ToString() + DateTime.UtcNow.Second.ToString();
-
-            responseData.Token = token;
+            responseData.Token = new Random().Next(10000, 300000).ToString() + DateTime.UtcNow.Second.ToString();
+            responseData.TokenExpiry = DateTime.UtcNow.AddDays(1);
 
             return responseData;
         }

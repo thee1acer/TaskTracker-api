@@ -22,6 +22,8 @@ namespace TaskTracker.Database.Services.AppplicationUser
             {
                 var applicationUserDbRecord = applicationUser.Adapt<ApplicationUser>();
 
+                //check first if a record does not exist
+
                 await _taskTrackerContext.AddAsync(applicationUserDbRecord, cancellationToken).ConfigureAwait(false); 
 
                 await _taskTrackerContext.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
