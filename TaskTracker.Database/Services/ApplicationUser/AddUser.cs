@@ -22,7 +22,9 @@ namespace TaskTracker.Database.Services.AppplicationUser
             {
                 var applicationUserDbRecord = applicationUser.Adapt<ApplicationUser>();
 
-                await _taskTrackerContext.AddAsync(applicationUser, cancellationToken); 
+                await _taskTrackerContext.AddAsync(applicationUserDbRecord, cancellationToken).ConfigureAwait(false); 
+
+                await _taskTrackerContext.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
 
                 return true;
             }

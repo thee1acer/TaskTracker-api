@@ -24,21 +24,13 @@ namespace TaskTracker.Database.Services.UserAuthentication
         {
             try
             {
-                var addUserResult = await _addUserService.ExecuteAsync(applicationUserDto, cancellationToken);
+                if (applicationUserDto.Email != default && applicationUserDto.UnhashedPassword != default)
+                {
+                    applicationUserDto.UserPassword.PasswordHash = HashPassword(applicationUserDto.UnhashedPassword);
 
-                if (!addUserResult) return false;
-
-                var hashedPassword = HashPassword(applicationUserDto.UnhashedPassword);
-
-                var applicationUserPass = applicationUserDto.Adapt<ApplicationUserPassword>();
-
-
-                await _taskTrackerContext.ApplicationUserPasswords.AddAsync(applicationUserPass, cancellationToken)
-                        .ConfigureAwait(false);
-
-                await _taskTrackerContext.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
-
-                return true;
+                    return (await _addUserService.ExecuteAsync(applicationUserDto, cancellationToken));
+                }
+                return false;
             }
             catch(Exception ex)
             {
