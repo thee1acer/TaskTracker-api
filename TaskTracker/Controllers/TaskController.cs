@@ -66,7 +66,7 @@ namespace TaskTracker.Controllers
 
         [HttpDelete]
         [Route("delete-task/{taskId:int}")]
-        [ProducesResponseType(typeof(List<TaskEntityDTO>), 200)]
+        [ProducesResponseType(typeof(bool), 200)]
         public async Task<IActionResult> DeleteTaskAsync(int taskId)
         {
             try

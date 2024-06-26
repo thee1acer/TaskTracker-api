@@ -10,9 +10,7 @@ namespace TaskTracker.Database.Configurations
         {
             builder.ToTable("ApplicationUserPassword");
 
-            builder.HasKey(x => x.Id);
-
-            builder.HasOne(x => x.ApplicationUser);                
+            builder.HasKey(x => x.Id);               
         }
     }
 }

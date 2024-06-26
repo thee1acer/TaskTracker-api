@@ -7,8 +7,10 @@
         public string LastName { get; set; }
         public string Email { get; set; }
         public bool Inactive { get; set; }
-        public string UnhashedPassword { get; set; }
+        public string? UnhashedPassword { get; set; }
+        public string? Token { get; set; }
+        public DateTime? TokenExpiry { get; set; }
 
-        public virtual ApplicationUserRoleDTO UserRole { get; set; }
+        public virtual ApplicationUserPasswordDTO UserPassword { get; set; }
     }
 }

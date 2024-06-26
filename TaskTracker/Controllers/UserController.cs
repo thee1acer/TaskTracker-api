@@ -49,7 +49,7 @@ namespace UserTracker.Controllers
         }
 
         [HttpPost]
-        [Route("update-User")]
+        [Route("update-user")]
         [ProducesResponseType(typeof(bool), 200)]
         public async Task<IActionResult> UpdateUserAsync([FromBody] ApplicationUserDTO ApplicationUser)
         {
@@ -65,8 +65,8 @@ namespace UserTracker.Controllers
         }
 
         [HttpDelete]
-        [Route("delete-User/{userId:int}")]
-        [ProducesResponseType(typeof(List<ApplicationUserDTO>), 200)]
+        [Route("delete-user/{userId:int}")]
+        [ProducesResponseType(typeof(bool), 200)]
         public async Task<IActionResult> DeleteUserAsync(int userId)
         {
             try
@@ -82,7 +82,7 @@ namespace UserTracker.Controllers
 
 
         [HttpPost]
-        [Route("add-User")]
+        [Route("add-user")]
         [ProducesResponseType(typeof(bool), 200)]
         public async Task<IActionResult> AddUserAsync([FromBody] ApplicationUserDTO ApplicationUser)
         {

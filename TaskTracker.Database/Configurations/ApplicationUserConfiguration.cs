@@ -12,7 +12,7 @@ namespace TaskTracker.Database.Configurations
 
             builder.HasKey(x => x.Id);
 
-            builder.HasOne(x => x.UserRole);                
+            builder.HasOne(x => x.UserPassword);
         }
     }
 }

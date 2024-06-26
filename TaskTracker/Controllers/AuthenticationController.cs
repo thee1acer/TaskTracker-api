@@ -42,13 +42,13 @@ namespace UserTracker.Controllers
         }
 
         [HttpPost]
-        [Route("login-user/{applicationUserId:int}")]
-        [ProducesResponseType(typeof(bool), 200)]
-        public async Task<IActionResult> LoginUserAsync([FromBody] ApplicationUserDTO applicationUser)
+        [Route("login-user")]
+        [ProducesResponseType(typeof(ApplicationUserDTO), 200)]
+        public async Task<IActionResult> LoginUserAsync([FromBody] LoginAuthDataDTO applicationUserLoginDto)
         {
             try
             {
-                return Ok(await _userLoginService.ExecuteAsync(applicationUser));
+                return Ok(await _userLoginService.ExecuteAsync(applicationUserLoginDto));
             }
             catch (Exception ex)
             {

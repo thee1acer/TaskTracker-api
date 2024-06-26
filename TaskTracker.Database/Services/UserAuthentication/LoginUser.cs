@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Mapster;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System.Security.Cryptography;
 using TaskTracker.Common.Models;
@@ -15,21 +16,36 @@ namespace TaskTracker.Database.Services.UserAuthentication
             _logger = logger;
         }
 
-        public async Task<bool> ExecuteAsync(ApplicationUserDTO applicationUserDto, CancellationToken cancellationToken = default)
+        public async Task<ApplicationUserDTO> ExecuteAsync(LoginAuthDataDTO applicationUserLoginDto, CancellationToken cancellationToken = default)
         {
-            var applicationUserId = applicationUserDto.Id;
+            if (applicationUserLoginDto.Email == default || applicationUserLoginDto.UnhashedPassword == default) return default;
 
-            var applicationUser = await _taskTrackerContext.ApplicationUsers.FirstOrDefaultAsync(v => v.Id == applicationUserId, cancellationToken)
+            var applicationUser = await _taskTrackerContext.ApplicationUsers
+                .Include(v => v.UserPassword)
+                .FirstOrDefaultAsync(v => v.Email == applicationUserLoginDto.Email, cancellationToken)
                     .ConfigureAwait(false);
 
-            var applicationUserPassword = await _taskTrackerContext.ApplicationUserPasswords.FirstOrDefaultAsync(v => v.ApplicationUser.Id == applicationUserId, cancellationToken)
-                   .ConfigureAwait(false);
+     
+            if (applicationUser == default ) return default;
 
-            if (applicationUser == default || applicationUserPassword == default) return false;
+            var verificationResult = VerifyPassword(applicationUserLoginDto.UnhashedPassword, applicationUser.UserPassword.PasswordHash);
 
-            var verificationResult = VerifyPassword(applicationUserDto.UnhashedPassword, applicationUserPassword.PasswordHash);
+            if (verificationResult)
+            {
+                var responseData = applicationUser.Adapt<ApplicationUserDTO>();
 
-            return verificationResult;
+                return SetLoginToken(responseData);
+            }
+            return default;
+        }
+
+        private static ApplicationUserDTO SetLoginToken(ApplicationUserDTO responseData)
+        {
+            var token = new Random().Next(10000, 300000).ToString() + DateTime.UtcNow.Second.ToString();
+
+            responseData.Token = token;
+
+            return responseData;
         }
 
         public static bool VerifyPassword(string password, string storedHash)
