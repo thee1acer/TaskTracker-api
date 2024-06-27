@@ -26,7 +26,13 @@ namespace TaskTracker.Database.Services.UserAuthentication
             {
                 if (applicationUserDto.Email != default && applicationUserDto.UnhashedPassword != default)
                 {
-                    applicationUserDto.UserPassword.PasswordHash = HashPassword(applicationUserDto.UnhashedPassword);
+                    var userPassWordHash = new ApplicationUserPasswordDTO
+                    {
+                        Inactive = false,
+                        PasswordHash = HashPassword(applicationUserDto.UnhashedPassword)
+                    };
+
+                    applicationUserDto.UserPassword = userPassWordHash;
 
                     return (await _addUserService.ExecuteAsync(applicationUserDto, cancellationToken));
                 }

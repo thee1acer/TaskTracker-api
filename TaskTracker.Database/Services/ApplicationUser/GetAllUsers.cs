@@ -21,7 +21,11 @@ namespace TaskTracker.Database.Services.AppplicationUser
             var applicationUsers =  await _taskTrackerContext.ApplicationUsers.ToListAsync(cancellationToken)
                     .ConfigureAwait(false);
 
-            return applicationUsers.Adapt<List<ApplicationUserDTO>>();
+            var applicationUsersDto = applicationUsers.Adapt<List<ApplicationUserDTO>>();
+
+            applicationUsersDto.ForEach(applicationUser => applicationUser.UserPassword = null);
+
+            return applicationUsersDto;
         }
     }
 }

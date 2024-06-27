@@ -44,6 +44,8 @@ namespace TaskTracker.Database.Services.UserAuthentication
             responseData.Token = new Random().Next(10000, 300000).ToString() + DateTime.UtcNow.Second.ToString();
             responseData.TokenExpiry = DateTime.UtcNow.AddDays(1);
 
+            responseData.UserPassword = null;
+
             return responseData;
         }
 
