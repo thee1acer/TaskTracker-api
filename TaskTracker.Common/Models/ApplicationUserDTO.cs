@@ -10,7 +10,7 @@
         public string? UnhashedPassword { get; set; }
         public string? Token { get; set; }
         public DateTime? TokenExpiry { get; set; }
-        public int ApplicationUserRoleDTO { get; set; }
+        public int ApplicationUserRoleId { get; set; }
 
         public virtual ApplicationUserPasswordDTO? UserPassword { get; set; }
     }
