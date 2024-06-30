@@ -11,7 +11,7 @@
         public int TaskPriority { get; set; }
         public int TaskStoryPoints { get; set; }
         public int TaskStoryEffort { get; set; }
-        public virtual List<TaskBlockerEntityDTO> TaskBlockers { get; set; }
+        public virtual List<TaskBlockerEntityDTO>? TaskBlockers { get; set; }
 
     }
 }
