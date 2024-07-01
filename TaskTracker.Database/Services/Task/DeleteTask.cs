@@ -23,7 +23,7 @@ namespace TaskTracker.Database.Services.Task
 
                 if (task == default) return false;
 
-                task.State = TaskStatusEnum.Deffered.Description();
+                task.State = TaskStatusEnum.Removed.Description();
                 task.ModifiedBy = 1;
                 task.ModifiedOn = DateTime.UtcNow;
 

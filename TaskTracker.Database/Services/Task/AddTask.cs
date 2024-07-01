@@ -22,9 +22,9 @@ namespace TaskTracker.Database.Services.Task
             {
                 var taskDbRecord = taskEntity.Adapt<TaskEntity>();
 
-                if (taskDbRecord == null)
+                if (taskDbRecord != null)
                 {
-                    await _taskTrackerContext.AddAsync(taskEntity, cancellationToken);
+                    await _taskTrackerContext.AddAsync(taskDbRecord, cancellationToken);
 
                     await _taskTrackerContext.SaveChangesAsync(cancellationToken);
                     return true;

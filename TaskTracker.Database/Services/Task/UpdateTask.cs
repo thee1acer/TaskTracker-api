@@ -30,7 +30,9 @@ namespace TaskTracker.Database.Services.Task
 
                 var taskDbRecord = taskEntity.Adapt<TaskEntity>();
 
-                _taskTrackerContext.Tasks.Update(taskDbRecord);
+                _taskTrackerContext.Entry(taskRecord)
+                                .CurrentValues
+                                .SetValues(taskDbRecord);
 
                 await _taskTrackerContext.SaveChangesAsync();
 

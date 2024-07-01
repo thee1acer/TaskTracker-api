@@ -1,6 +1,7 @@
 ﻿using Mapster;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using TaskTracker.Common.Enums;
 using TaskTracker.Common.Models.Task;
 
 namespace TaskTracker.Database.Services.Task
@@ -18,7 +19,7 @@ namespace TaskTracker.Database.Services.Task
 
         public async Task<List<TaskEntityDTO>> ExecuteAsync(CancellationToken cancellationToken)
         {
-            var tasks = await _taskTrackerContext.Tasks.Include(v => v.TaskBlockers).ToListAsync(cancellationToken)
+            var tasks = await _taskTrackerContext.Tasks.Include(v => v.TaskBlockers).Where(v => v.State != TaskStatusEnum.Removed.Description()).ToListAsync(cancellationToken)
                     .ConfigureAwait(false);
 
             return tasks.Adapt<List<TaskEntityDTO>>();
