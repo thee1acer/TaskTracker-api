@@ -1,6 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Reflection;
+using System.Text.Json;
+using System.Threading;
 using TaskTracker.Database.Models;
+using TaskTracker.Database.Models.Saps;
 using TaskTracker.Database.Models.Task;
 
 namespace TaskTracker.Database
@@ -18,9 +21,9 @@ namespace TaskTracker.Database
         public void EnsureMigrationIsApplied(bool isDevelopmentEnvironment)
         {
             #if DEBUG
-                //Database.EnsureDeleted();
+                Database.EnsureDeleted();
                 Database.Migrate();
-                //AddMockData();
+                //AddMockDataAsync(); -> will add later for seemless first time experience
             #else
                 Database.Migrate();
             #endif
@@ -31,6 +34,13 @@ namespace TaskTracker.Database
         public virtual DbSet<TaskEntity> Tasks => Set<TaskEntity>();
         public virtual DbSet<TaskBlockerEntity> TaskBlockers => Set<TaskBlockerEntity>();
         public virtual DbSet<ApplicationUserPassword> ApplicationUserPasswords => Set<ApplicationUserPassword>();
+
+        //saps    
+        public virtual DbSet<CaseEntity> Cases=> Set<CaseEntity>();
+        public virtual DbSet<StationEntity> Stations=> Set<StationEntity>();
+        public virtual DbSet<SubjectEntity> Subjects=> Set<SubjectEntity>();
+        public virtual DbSet<SubjectWarrantEntity> SubjectWarrants=> Set<SubjectWarrantEntity>();
+        public virtual DbSet<DisappearanceDetailsEntity> DisappearanceDetails=> Set<DisappearanceDetailsEntity>();
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
