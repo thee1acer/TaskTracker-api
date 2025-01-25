@@ -1,7 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using TaskTracker.Database.Models.Task;
 
-namespace TaskTracker.Database.Models.Task
+namespace TaskTracker.Database.Configurations.Task
 {
     public class TaskEntityConfiguration : IEntityTypeConfiguration<TaskEntity>
     {

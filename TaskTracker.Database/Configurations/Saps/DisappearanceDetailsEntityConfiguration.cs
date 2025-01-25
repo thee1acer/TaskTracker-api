@@ -1,7 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using TaskTracker.Database.Models.Saps;
 
-namespace TaskTracker.Database.Models.Saps
+namespace TaskTracker.Database.Configurations.Saps
 {
     public class DisappearanceDetailsEntityConfiguration : IEntityTypeConfiguration<DisappearanceDetailsEntity>
     {
