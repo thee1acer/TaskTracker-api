@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using TaskTracker.Database.Services.AppplicationUser;
+using TaskTracker.Database.Services.Saps;
 using TaskTracker.Database.Services.Task;
 using TaskTracker.Database.Services.UserAuthentication;
 
@@ -23,6 +24,10 @@ namespace TaskTracker.Database.Services
 
             service.AddTransient<LoginUser>();
             service.AddTransient<RegisterUser>();
+
+            service.AddTransient<WebScraperService>();
+            service.AddTransient<MissingPersonsListService>();
+            service.AddTransient<WantedPersonsListService>();
         }
     }
 }

@@ -21,7 +21,7 @@ namespace TaskTracker.Database
         public void EnsureMigrationIsApplied(bool isDevelopmentEnvironment)
         {
             #if DEBUG
-                Database.EnsureDeleted();
+                //Database.EnsureDeleted();
                 Database.Migrate();
                 //AddMockDataAsync(); -> will add later for seemless first time experience
             #else
